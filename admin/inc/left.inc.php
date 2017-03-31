@@ -15,10 +15,17 @@
    <dl>
     <dt>商品分类管理</dt>
     <!--当前链接则添加class:active-->
-    <dd><a href="product_list.html">基本分类列表</a></dd>
+    <dd><a href="father_cate.php" <?php if(basename($_SERVER['SCRIPT_NAME'])=='father_cate.php'){echo 'class="active"';} ?>>基本分类列表</a></dd>
+    <dd><a href="son_cate.php" <?php if(basename($_SERVER['SCRIPT_NAME'])=='son_cate.php'){echo 'class="active"';} ?>>子分类列表</a></dd>
     <dd><a href="father_cate_add.php" <?php if(basename($_SERVER['SCRIPT_NAME'])=='father_cate_add.php'){echo 'class="active"';} ?>>新增基本分类</a></dd>
-    <dd><a href="product_list.html">子分类列表</a></dd>
     <dd><a href="son_cate_add.php" <?php if(basename($_SERVER['SCRIPT_NAME'])=='son_cate_add.php'){echo 'class="active"';} ?>>新增子分类</a></dd>
+    <?php
+      if(basename($_SERVER['SCRIPT_NAME']) == 'father_cate_update.php') {
+        echo "<dd><a class='active'>编辑基本分类</a></dd>";
+      } else if(basename($_SERVER['SCRIPT_NAME']) == 'son_cate_update.php') {
+        echo "<dd><a class='active'>编辑子分类</a></dd>";
+      }
+    ?>
    </dl>
   </li>
   <li>

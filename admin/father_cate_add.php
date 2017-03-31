@@ -14,11 +14,12 @@ execute($link, $charset);
 //表单提交验证
 if (isset($_POST['submit'])) {
   //对提交的数据进行验证
+  $check_flag = 'add';
   include 'inc/check_father_cate.inc.php';
   $query = "INSERT into `lshop_cate`(cate_name,sort) values ('{$_POST['cate_name']}','{$_POST['sort']}')";
   execute($link, $query);
   if(mysqli_affected_rows($link) == 1) {
-    skip('2', 'father_cate_add.php', 'ok', '添加栏目成功!');
+    skip('2', 'father_cate.php', 'ok', '添加栏目成功!');
   }else{
     skip('3', 'father_cate_add.php', 'error', 'sorry,添加失败!');
   }
